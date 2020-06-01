@@ -1,0 +1,7 @@
+Design a HTML page About you with 3 tabs:
+
+Tab1 : Should display personal information of you
+Tab2: Should display Educational information of you
+Tab3: Should display Professional/Experience information
+
+Details about the corresponding tab should be displayed only when the tab gets clicked. I know there are few speculations/gaps in the ask above. Please discuss as a team and fill in the speculations and work on the assignment.

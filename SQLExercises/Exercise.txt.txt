@@ -1,0 +1,35 @@
+[Person] Table
+PersonalID
+FirstName
+LastName
+Discriminator
+ 
+[Course] Table
+CourseID
+Title
+Credits
+Technology
+ 
+[Technology] Table
+TechnologyID
+TechnologyName
+ 
+[StudentEnrollment] Table
+PersonID
+CourseID
+ 
+[CourseInstructor] Table
+CourseID
+PersonID
+ 
+Assignment:
+1. Create above tables with the bold columns as Primary keys
+2. Add sample data to the above tables
+3. Write a Query on Person data to identity Students (Discriminator) 
+4. Write a Query on Course to identify count of courses per each technology
+5. Write a Query on Person data to identify number of people per each Discriminator
+
+
+6. Write query to find the list of courses offered with the names of their instructors
+7. Write a query to find the name(s) of the instructors who offer max number of courses
+8. Write a query to find our the names of students whose enrollments are greater than 7 credits in total
