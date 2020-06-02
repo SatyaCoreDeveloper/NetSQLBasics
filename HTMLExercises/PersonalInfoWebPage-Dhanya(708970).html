@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Creating Dynamic Tabs in Bootstrap 4 via JavaScript</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+	.bs-example{
+    	margin: 20px;
+    }
+</style>
+<script>
+    $(document).ready(function(){ 
+        $("#myTab a").click(function(e){
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    });
+</script>
+</head>
+<body>
+<div class="bs-example">
+  <h2>Individual Information</h2>
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="#personal" class="nav-link active">Personal</a>
+        </li>
+        <li class="nav-item">
+            <a href="#education" class="nav-link">Education</a>
+        </li>
+        <li class="nav-item">
+            <a href="#profession" class="nav-link">Profession</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade shadow p-3 mb-5 bg-white rounded show active" id="personal">
+            <h4 class="mt-2 text-info">Personal Information</h4>
+            <table class="table">
+              <tr><td class="text-muted">Name</td><td >Dhanya</td></tr>
+              <tr><td class="text-muted">DOB</td><td>12, August</td></tr>
+              <tr><td class="text-muted">Nationality</td><td>Indian</td></tr>
+              <tr><td class="text-muted">Blood Group</td><td>B-Positive</td></tr>
+              <tr><td class="text-muted">Contact Number</td><td>9876543210</td></tr>
+              <tr><td class="text-muted">Email Id</td><td>708970@cog.com</td></tr>
+            </table>
+        </div>
+        <div class="tab-pane fade shadow p-3 mb-5 bg-white rounded" id="education">
+            <h4 class="mt-2 text-info">Educational Information</h4>
+            <table class="table">
+              <tr><td class="text-muted">UG Degree</td><td>BSC Computer Technology</td></tr>
+              <tr><td class="text-muted">University</td><td>Bharatiyar University</td></tr>
+              <tr><td class="text-muted">Year</td><td>2012</td></tr>
+              <tr><td class="text-muted">PG Degree</td><td>MS Software Engineering</td></tr>
+              <tr><td class="text-muted">University</td><td>BITS University</td></tr>
+              <tr><td class="text-muted">Year</td><td>2015</td></tr>
+            </table>
+        </div>
+        <div class="tab-pane fade shadow p-3 mb-5 bg-white rounded" id="profession">
+            <h4 class="mt-2 text-info">Professional Information</h4>
+            <table class="table">
+              <tr><td class="text-muted">Current Company</td><td class="">Cognizant Technologies</td></tr>
+              <tr><td class="text-muted">Designation</td><td>Associate - Projects</td></tr>
+              <tr><td class="text-muted">Active Years</td><td>2018 - Present</td></tr>
+              <tr><td class="text-muted">Previous Company</td><td>Wipro Technologies</td></tr>
+              <tr><td class="text-muted">Designation</td><td>Senior Project Engineer</td></tr>
+              <tr><td class="text-muted">Active Years</td><td>2012 - 2018</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
