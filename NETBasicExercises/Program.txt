@@ -44,9 +44,12 @@ namespace InstituteConsole
             var liststudent = from dis in listPerson
                               where dis.discriminator == Discriminator.Student
                               select dis.FirstName + " "+dis.LastName;
-            //a.	Find out number of Instructor in the list using LINQ statement
+                              
+            //Find out number of Instructor in the list using LINQ statement
             int TrainerCount = listPerson.Where(p => p.discriminator == Discriminator.Instructor).ToList().Count();
             var listTrainer = listPerson.Where(t => t.discriminator == Discriminator.Instructor).Select(t => t.FirstName +" " + t.LastName);
+            
+            
             //Find out the total credits per a given technology
             var listTechnology = from listc in listCourse
                         group listc by listc.TechnologyName into g
@@ -55,6 +58,8 @@ namespace InstituteConsole
                             Tech = g.Key,
                             TotalCredit = g.Sum(s => s.Credits)
                         };
+                        
+                        
             //Find out the list of Technologies
             var listTech = listCourse.Select(p => p.TechnologyName).Distinct();
         }
