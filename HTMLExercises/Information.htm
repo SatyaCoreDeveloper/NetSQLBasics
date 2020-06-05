@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style Type=text/Javascript>
+body {font-family: Arial;}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</head>
+<body>
+
+<h2>Details</h2>
+<p> Please Click on the buttons inside the tabbed menu for the Information:</p>
+
+<div class="tab" style="Overflow:hidden;">
+  <button class="tablinks" onclick="openDetails(event, 'Personal')">Personal</button>
+  <button class="tablinks" onclick="openDetails(event, 'Educational')">Educational</button>
+  <button class="tablinks" onclick="openDetails(event, 'Professional')">Professional</button>
+</div>
+
+
+<div id="Personal" class="tabcontent" style="Display:none;">
+  <h3>Personal Details</h3>
+  <p><b>Name:</b> Sarath Chandra Reddy</p>
+  <p><b>Age:</b> 24</p>
+  <p><b>City:</b> Allagadda</p>
+</div>
+
+<div id="Educational" class="tabcontent" style="Display:none;">
+  <h3>Educational Details</h3>
+  <p><b>Degree:</b> B.Tech</p>
+  <p><b>College:</b> Amrita University</p>
+  <p><b>Year:</b> 2013-2017</p>
+</div>
+
+<div id="Professional" class="tabcontent" style="Display:none;">
+  <h3>Professional details</h3>
+  <p><b>Profession:</b> Software Engineer</p>
+  <p><b>Company:</b> Cognizant</p>
+  <p><b>Experience:</b> 2.4 Yrs</p>
+</div>
+
+<script>
+function openDetails(evt, Details) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(Details).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+</body>
+</html>
