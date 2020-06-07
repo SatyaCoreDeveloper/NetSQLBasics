@@ -1,0 +1,122 @@
+1. Person Table
+ CREATE TABLE [dbo].[Person](
+    [PersonID] [int] IDENTITY(1,1) NOT NULL,
+    [FirstName] [varchar](100) NOT NULL,
+    [LastName] [varchar](100) NOT NULL,
+    [Discriminator] [varchar](100) NOT NULL,
+    Primary key(PersonID))
+
+    
+Insert Into Person values ('Deb','K','Instructor')
+
+    Insert Into Person values ('Raz','M','Operator')
+ 
+
+2.Course Tablr
+  
+
+CREATE TABLE [dbo].[Course](
+    [CourseID] [int] IDENTITY(1,1) NOT NULL,
+    [Title] [varchar](100) NOT NULL,
+    [Credits] Decimal(18,3) NOT NULL,
+    [Technology] [varchar](100) NOT NULL,
+    Primary key(CourseID))
+
+
+
+Insert Into Course Values ('Advance C#',8.6,'.Net')
+Insert Into Course Values ('Advance Angular',10,'Angular')
+
+
+
+
+     Insert Into Course Values ('Advance C#',8.6,'.Net')
+
+     Insert Into Course Values ('Advance Angular',10,'Angular')
+3. Technology Table 
+  CREATE TABLE [dbo].[Technology](
+    [TechnologyID] [int] IDENTITY(1,1) NOT NULL,
+    [TechnologyName] [varchar](100) NOT NULL,
+        Primary key(TechnologyID))
+
+ 
+
+
+     Insert into Technology Values ('.Net')
+
+     Insert into Technology Values ('Angular')
+
+     Insert into Technology Values ('Java')
+4. StudentEnrollment Table 
+  CREATE TABLE dbo.StudentEnrollment(
+ [StudentEnrollmentID] [int] IDENTITY(1,1) NOT NULL,
+  StudentID INT FOREIGN KEY REFERENCES Person(PersonalID),
+ CourseID INT FOREIGN KEY REFERENCES Course(CourseID)
+)
+     insert Into StudentEnrollment values (1,1)
+      
+     insert Into StudentEnrollment values (2,2)
+       
+     insert Into StudentEnrollment values (1,2)
+
+5. CourseInstructor Table
+
+    CREATE TABLE dbo.CourseInstructor( [CourseInstructorID] [int] IDENTITY(1,1) NOT NULL,
+ 
+ CourseID INT FOREIGN KEY REFERENCES Course(CourseID),
+ PersonID INT FOREIGN KEY REFERENCES Person(PersonalID)
+)
+  
+
+
+-------------Exercise----------------
+
+3. Write a Query on Person data to identity Students (Discriminator) 
+     select Discriminator from Person
+ where discriminator = 'Student'
+
+    
+4. Write a Query on Course to identify count of courses per each technology
+     select Count(Technology),Technology from Course Group by (Technology)
+ 
+
+
+5. Write a Query on Person data to identify number of people per each Discriminator
+      select Count(Discriminator),Discriminator from Person Group by (Discriminator)
+
+
+6. Write query to find the list of courses offered with the names of their instructors
+   
+
+
+select c.CourseID,c.Title ,p.FirstName ,p.LastName ,p.Discriminator from Course c inner join StudentEnrollment se on se.CourseID = c.CourseID inner join Person p on p.PersonID = se.StudentID
+
+
+
+
+7. Write a query to find the name(s) of the instructors who offer max number of courses
+    
+
+
+Declare @int_Id INT;
+
+
+    select top 1  @int_Id = CourseID from CourseInstructor GROUP BY CourseID ORDER BY COUNT(CourseID) DESC
+
+Print @int_Id
+
+select * from CourseInstructor CI inner Join Person p on p.PersonID = CI.PersonID where CI.CourseID = @int_Id
+
+
+
+
+
+
+
+
+   
+8. Write a query to find our the names of students whose enrollments are greater than 7 credits in total
+   select * from Person p
+inner join StudentEnrollment Se on se.StudentID = p.PersonID
+inner join Course c on c.CourseID = Se.CourseID
+where p.Discriminator='Student' AND c.Credits > 7

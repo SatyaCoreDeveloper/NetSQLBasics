@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html><head>
+
+	<style>
+		*  {  padding: 0 ;  margin: 0 ; }
+		body{
+			padding: 0;
+			margin: 0;
+			width:100%;
+		}
+	.Header{
+		background-color: darkmagenta;
+		color:  white;
+		padding: 10px;
+		width: 100%;
+	}
+	.container{
+		clear: both;
+		display: block;
+		width: 100%;
+		
+		padding: 10px;
+		margin: 0;
+	}
+	ul{
+		list-style: none;
+	}
+	.menu_itms{
+		margin: 8px;
+		padding: 3px;
+		background-color: blue;
+	}
+	.detailsSection {
+		color: black !important;
+	}
+	.testc{
+		float: left;
+		width: 400px;
+		padding: 10px;
+		color:#fff;
+		
+	}
+	.detailsSection  p{
+ margin: 20px;
+	}
+.rightSection{
+	align-items: right !important;
+	background-color: blue;
+	text-align: center;
+}
+.rightSection h2 p{
+	padding: 2 px;
+	margin: 2px;
+
+}
+	.footer{
+		text-align: center;
+		background-color: darkmagenta;
+		color:  white;
+		padding: 10px;
+		width: 100%;
+		position: absolute;
+		bottom: 0px;
+	}
+	.clr{
+		clear: both;
+	}
+	 @media (max-width: 800px) {
+		.testc{
+		 width: 100%;
+	}
+		   
+	}
+	</style>
+	
+	
+	</head>
+	<body>
+	
+	<div>
+	  <div class="Header">
+		<h1>Cognizant AIG Team</h1>
+		
+	  </div>
+	  <div class="container">
+	   <div class="leftSection testc">
+		 <ul>
+		    <li class="menu_itms" onclick="showDetailsView('personal')">Personal Info</li>
+		    <li class="menu_itms" onclick="showDetailsView('education')">Educational Info</li>
+		    <li class="menu_itms" onclick="showDetailsView('professional')">Professional Info</li>
+		    
+		</ul>
+		</div>
+		<div class="details_personal" style="display:none;"> 
+		  
+		  <h2>Personal Details</h2>
+		 <p>My Name is <b>Debabrata Khanra</b> from <i>Cognizant</i>.</p>
+		  
+		</div>
+		<div class="details_education" style="display:none;">
+		  
+            <h2>Educational Details</h2>
+           <p>B.Tech from <b>Camellia Institute Of Technology</b> on 2016.</p>
+            
+          </div>
+
+          <div class="details_professional" style="display:none;">
+		  
+            <h2>Professional Details</h2>
+           <p>3.5 years Exp. as <b>Software Developer</b>.</p>
+            
+          </div>
+	  </div>  
+	  
+	  
+	  
+    </div>
+    
+    <script>
+        var lastSelectedId ='';
+        
+        function showDetailsView(id){
+         var currentClass ='details_'+id;
+         if(lastSelectedId != '') 
+           {
+         document.getElementsByClassName(lastSelectedId)[0].style.display = "none";
+         }
+         document.getElementsByClassName(currentClass)[0].style.display = 'block';       
+     
+         lastSelectedId = currentClass;
+
+        }
+    </script>
+
+	</body></html>
